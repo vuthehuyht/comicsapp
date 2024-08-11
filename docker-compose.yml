@@ -1,0 +1,52 @@
+services:
+#  nginx:
+#    container_name: nginx
+#    build:
+#      context: ./nginx
+#      dockerfile: Dockerfile
+#    restart: on-failure
+#    ports:
+#      - "80:80"
+#    networks:
+#      - comicsapp-network
+#    volumes:
+#      - ./nginx/log:/var/log/nginx # Logging
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    networks:
+      - comicsapp-network
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: comics_dev
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - db_data:/var/lib/mysql
+
+  spring-app:
+    container_name: spring-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    networks:
+      - comicsapp-network
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    ports:
+      - "8080:8080"
+
+networks:
+  comicsapp-network:
+    driver: bridge
+
+volumes:
+  db_data: {}
