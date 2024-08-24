@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/v1/data-book")
+@RequestMapping(path = "/api/v1/")
 @RequiredArgsConstructor
 public class BookController {
     final private BookService bookService;
 
-    @GetMapping(path = "/:dataBookId/:episode")
+    @GetMapping(path = "/:dataBookId/book/:episode")
     ApiResponse<BookResponse> getBookByEpisodeAndDataBookId(
             @PathVariable Integer episode,
             @PathVariable Long dataBookId
@@ -29,7 +29,7 @@ public class BookController {
                 .build();
     }
 
-    @GetMapping(path = "/:dataBookId")
+    @GetMapping(path = "/:dataBookId/books")
     ApiResponse<List<BookResponse>> getAllBookByDataBookId(@PathVariable Long dataBookId) {
         return ApiResponse.<List<BookResponse>>builder()
                 .code(HttpStatus.OK.value())
