@@ -36,7 +36,7 @@ public class SeriesBook {
     @Column(name = "is_popular")
     private String isPopular;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "rating")
@@ -47,7 +47,4 @@ public class SeriesBook {
 
     @Column(name = "episodes")
     private Integer episodes;
-
-    @Column(name = "key_book")
-    private String keyBook;
 }
