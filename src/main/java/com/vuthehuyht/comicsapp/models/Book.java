@@ -41,7 +41,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "data_book_id", nullable = false)
-    private DataBook dataBook;
+    private SeriesBook dataBook;
 
     @Column(name = "episode")
     private Integer episodes;
