@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "data_book")
+@Table(name = "series_book")
 @Setter
 @Getter
 @Builder
@@ -24,7 +24,7 @@ public class SeriesBook {
     @Column(name = "first_published_year")
     private String firstPublishedYear;
 
-    @OneToMany(mappedBy = "dataBook")
+    @OneToMany(mappedBy = "seriesBook")
     private Set<Book> bookList;
 
     @Column(name = "author")
@@ -40,11 +40,14 @@ public class SeriesBook {
     private String description;
 
     @Column(name = "rating")
-    private String rating;
+    private Double rating;
 
     @Column(name = "language")
     private String language;
 
     @Column(name = "episodes")
-    private String episodes;
+    private Integer episodes;
+
+    @Column(name = "key_book")
+    private String keyBook;
 }

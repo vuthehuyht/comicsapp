@@ -11,6 +11,7 @@ public record BookResponse(
         @JsonProperty("image_url") String imageUrl,
         @JsonProperty("is_picked") boolean isPicked,
         @JsonProperty("key_book") String keyBook,
-        String year
+        String year,
+        Integer episode
 ) {
 }

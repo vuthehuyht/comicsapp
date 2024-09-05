@@ -36,7 +36,8 @@ public class BookServiceImpl implements BookService {
                 bookOptional.get().getImageUrl(),
                 bookOptional.get().isPicked(),
                 bookOptional.get().getKeyBook(),
-                bookOptional.get().getYear()
+                bookOptional.get().getYear(),
+                bookOptional.get().getEpisode()
         );
     }
 
@@ -54,7 +55,8 @@ public class BookServiceImpl implements BookService {
                 book.getImageUrl(),
                 book.isPicked(),
                 book.getKeyBook(),
-                book.getYear()
+                book.getYear(),
+                book.getEpisode()
         )));
         return bookResponses;
     }
