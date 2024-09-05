@@ -13,7 +13,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DataBook {
+public class SeriesBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
