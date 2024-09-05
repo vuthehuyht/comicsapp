@@ -40,9 +40,9 @@ public class Book {
     private String year;
 
     @ManyToOne
-    @JoinColumn(name = "data_book_id", nullable = false)
-    private SeriesBook dataBook;
+    @JoinColumn(name = "series_book_id", nullable = false)
+    private SeriesBook seriesBook;
 
     @Column(name = "episode")
-    private Integer episodes;
+    private Integer episode;
 }

@@ -1,9 +1,9 @@
 package com.vuthehuyht.comicsapp.services.impl;
 
-import com.vuthehuyht.comicsapp.models.DataBook;
-import com.vuthehuyht.comicsapp.repositories.DataBookRepository;
-import com.vuthehuyht.comicsapp.responses.DataBookResponse;
-import com.vuthehuyht.comicsapp.services.DataBookService;
+import com.vuthehuyht.comicsapp.models.SeriesBook;
+import com.vuthehuyht.comicsapp.repositories.SeriesBookRepository;
+import com.vuthehuyht.comicsapp.responses.SeriesBookResponse;
+import com.vuthehuyht.comicsapp.services.SeriesBookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +12,15 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class DataBookServiceImpl implements DataBookService {
-    private final DataBookRepository dataBookRepository;
+public class DataBookServiceImpl implements SeriesBookService {
+    private final SeriesBookRepository dataBookRepository;
 
     @Override
-    public List<DataBookResponse> getAllDataBook() {
-        List<DataBook> dataBooks = dataBookRepository.findAll();
-        List<DataBookResponse> responses = new ArrayList<>();
+    public List<SeriesBookResponse> getAllDataBook() {
+        List<SeriesBook> dataBooks = dataBookRepository.findAll();
+        List<SeriesBookResponse> responses = new ArrayList<>();
         dataBooks.forEach(dataBook -> {
-            responses.add(new DataBookResponse(
+            responses.add(new SeriesBookResponse(
                     dataBook.getSeriesName(),
                     dataBook.getFirstPublishedYear(),
                     dataBook.getAuthor(),
@@ -30,7 +30,6 @@ public class DataBookServiceImpl implements DataBookService {
                     dataBook.getRating(),
                     dataBook.getLanguage(),
                     dataBook.getEpisodes()
-
             ));
         });
 
