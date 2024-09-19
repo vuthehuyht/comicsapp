@@ -18,10 +18,10 @@ import java.util.List;
 public class BookController {
     final private BookService bookService;
 
-    @GetMapping(path = "/:dataBookId/book/:episode")
+    @GetMapping(path = "/series-book/{dataBookId}/book/{episode}")
     ApiResponse<BookResponse> getBookByEpisodeAndDataBookId(
-            @PathVariable Integer episode,
-            @PathVariable Long dataBookId
+            @PathVariable("episode") Integer episode,
+            @PathVariable("dataBookId") Long dataBookId
     ) {
         return ApiResponse.<BookResponse>builder()
                 .code(HttpStatus.OK.value())
