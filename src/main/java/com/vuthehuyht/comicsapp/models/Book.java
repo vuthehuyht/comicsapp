@@ -27,7 +27,7 @@ public class Book {
     @Column(name = "progress")
     private String progress;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", length = 1024)
     private String imageUrl;
 
     @Column(name = "is_picked")
