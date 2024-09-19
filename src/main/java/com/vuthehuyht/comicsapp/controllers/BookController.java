@@ -29,7 +29,7 @@ public class BookController {
                 .build();
     }
 
-    @GetMapping(path = "/:dataBookId/books")
+    @GetMapping(path = "/series-book/:dataBookId/books")
     ApiResponse<List<BookResponse>> getAllBookByDataBookId(@PathVariable Long dataBookId) {
         return ApiResponse.<List<BookResponse>>builder()
                 .code(HttpStatus.OK.value())
