@@ -29,8 +29,8 @@ public class BookController {
                 .build();
     }
 
-    @GetMapping(path = "/series-book/:dataBookId/books")
-    ApiResponse<List<BookResponse>> getAllBookByDataBookId(@PathVariable Long dataBookId) {
+    @GetMapping(path = "/series-book/{dataBookId}/books")
+    ApiResponse<List<BookResponse>> getAllBookByDataBookId(@PathVariable("dataBookId") Long dataBookId) {
         return ApiResponse.<List<BookResponse>>builder()
                 .code(HttpStatus.OK.value())
                 .data(bookService.getBooksByDataBookId(dataBookId))
